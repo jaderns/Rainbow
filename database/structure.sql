@@ -6,7 +6,7 @@ CREATE TABLE `clients` (
   `address` text,
   `created_at` DATETIME NOT NULL DEFAULT NOW(),
   `statut` int(11) NOT NULL DEFAULT '0',
-  PRIMARY KEY (`id`),
+  PRIMARY KEY (`id_client`),
   UNIQUE KEY `email_unique` (`email`)
 ) 
 

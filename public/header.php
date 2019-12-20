@@ -1,9 +1,9 @@
-<a href="index.php">Accueil</a>
-<a href="produit.php">Produit</a>
-<a href="store.php">Store</a>
+<a href="/rainbow/public/index.php">Accueil</a>
+<a href="/rainbow/public/produit.php">Produit</a>
+<a href="/rainbow/public/store.php">Store</a>
 
 <p></p>
-<a href="panier.php">Panier</a>
+<a href="/rainbow/public/panier.php">Panier</a>
 
 <?php 
 
@@ -22,7 +22,7 @@ else {
     <?= $client->name();?></p>
 <a href="client/profile.php">Mon compte</a>
 
-<a href="logout.php">log out</a>
+<a href="/rainbow/public/logout.php">log out</a>
 <?php
 }
 ?>
