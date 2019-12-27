@@ -16,5 +16,4 @@ require_once __DIR__.'/../../public/header.php';
 ?>
 
 <h1>Profile</h1>
-<p>Header ne redirige pas correctement vers index</p>
 

@@ -35,22 +35,10 @@ if (count($error) === 0 && null !== $email) {
         header('Location: ../index.php');
         exit();
     } else {
-        // Erreur d'enregistrement
+        $error['enregistrement'] = 'Erreur pendant enregistrement !';
+    }
     }
 
-    // if ($client instanceof Client) {
-    //     //Verif mdp 
-    //     if (true === password_verify($password, $client->password())) {
-            
-    //         SessionManager::loginClient($client);
-    //     } else {
-            
-    //         $error = "Mauvais mdp";
-    //     } 
-    // } else {
-    //     $error = 'Aucun client avec ces informations, merci de rééssayer.';
-    // }    
-}
 ?>
 
 
@@ -64,11 +52,11 @@ if (count($error) === 0 && null !== $email) {
                     <form method="post">
                         <div class="form-group">
                             <label for="exampleInputFullname">Name</label>
-                            <input type="text" class="form-control" id="exampleInputFullname" name="name" placeholder="Name" value="<?php if(isset($name)) echo $name; ?>" required>
+                            <input type="text" class="form-control" id="exampleInputFullname" name="name" placeholder="Name" value="<?= $name; ?>" required>
                         </div>
                         <div class="form-group">
                             <label for="exampleInputEmail1">Email address</label>
-                            <input type="email" class="form-control" id="exampleInputEmail1" name="email" placeholder="Email" value="<?php if(isset($email)) echo $email; ?>" required>
+                            <input type="email" class="form-control" id="exampleInputEmail1" name="email" placeholder="Email" value="<?= $email; ?>" required>
                             <?php if (isset($error['email'])): ?>
                                 <p><?= $error['email'] ?></p>
                             <?php endif; ?>

@@ -33,7 +33,8 @@ return new App\Model\Client(
     $hashedPassword,
     $name,
     $address,
-    new DateTimeImmutable()
+    new DateTimeImmutable(),
+    0
 );
 
 

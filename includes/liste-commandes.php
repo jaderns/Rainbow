@@ -1,24 +1,34 @@
 <?php
+require_once __DIR__.'/../src/DbConnection.php';
+require_once __DIR__.'/../src/Model/Commande.php';
 
-$pdo = new PDO($dsn,$user,$password);
+$pdo = \App\DbConnection::current(); 
 $statement = $pdo->prepare(
 <<<SQL
-    SELECT client_id, created_at, state, id
-    FROM commands;
+    SELECT id_commande, id_client, id_produit, etat, created_at
+    FROM commandes
 SQL
 );
-if (false === $statement->execute()) {
+
+if (false === $statement->execute()) { 
     throw new RuntimeException('Erreur avec la requête !');
 }
 
-$commands = [];
+$commandes = [];
 while ($ligne = $statement->fetch()) {
-    $commands[] = new Command(
-        $ligne['id'],
-        $ligne['state'],
-        new \DateTimeImmutable($ligne['created_at']),
-        $ligne['client_id']
+    $commandes[] = new App\Model\Commande(
+        $ligne['id_commande'],
+        $ligne['id_client'],
+        $ligne['id_produit'],
+        $ligne['etat'],
+        new \DateTimeImmutable($ligne['created_at'])
     );
 }
 
-return $commands;
+foreach ($commandes as $value)
+{
+    echo "<p>".$value->id_commande()." ";
+    echo $value->id_client()." ";
+    echo $value->id_produit()." ";
+    echo $value->etat()."<p/>";
+};

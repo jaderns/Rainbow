@@ -15,7 +15,7 @@ if( null === $email) {
 $pdo = \App\DbConnection::current(); 
 $statement = $pdo->prepare(
 <<<SQL
-    SELECT email, password, created_at, name, address
+    SELECT email, password, name, address, created_at, statut
     FROM clients
     WHERE email=?;
 SQL
@@ -31,7 +31,8 @@ if($ligne = $statement->fetch()) {
         $ligne['password'],
         $ligne['name'],
         $ligne['address'],
-        new DateTimeImmutable($ligne['created_at'])
+        new DateTimeImmutable($ligne['created_at']), 
+        $ligne['statut']
     );
 }
 

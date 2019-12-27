@@ -20,7 +20,22 @@ else {
     ?>
 <p>Bonjour
     <?= $client->name();?></p>
-<a href="client/profile.php">Mon compte</a>
+    <p>Votre email
+    <?= $client->email();?></p>
+    <p>Votre statut
+    <?= $client->statut();?></p>
+    
+<?php 
+if (1 == $client->statut()) 
+{
+    echo '<a href="/rainbow/public/admin/profile-pro.php">Mon compte</a>';
+} else {
+    echo '<a href="/rainbow/public/client/profile.php">Mon compte</a>';
+}
+?>
+
+
+
 
 <a href="/rainbow/public/logout.php">log out</a>
 <?php

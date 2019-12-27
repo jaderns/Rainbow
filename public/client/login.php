@@ -6,7 +6,7 @@ use App\SessionManager;
 require_once __DIR__.'/../../src/SessionManager.php';
 
 if(SessionManager::loggedClient() instanceof Client) {
-    header('location: profile.php');
+    header('location: ../index.php');
     exit(); 
 }
 
@@ -14,7 +14,6 @@ if(SessionManager::loggedClient() instanceof Client) {
     $email = $_POST['email'] ?? null;
     $password = $_POST['password'] ?? null;
     //ou alors=> $email = isset($_POST['email']) ? $_POST['email'] : null;
-
     if (null !== $email &&
         false === filter_var($email, FILTER_VALIDATE_EMAIL)
     ) {
@@ -26,8 +25,9 @@ if(SessionManager::loggedClient() instanceof Client) {
         if ($client instanceof Client) {
              //Verif mdp 
              if (true === password_verify($password, $client->password())) {
-                
                 SessionManager::loginClient($client);
+                header('location: ../index.php');
+                exit();
              } else {
                 
                 $error = "Mauvais mdp";
@@ -43,6 +43,8 @@ if(SessionManager::loggedClient() instanceof Client) {
     <?php if (null !== $error): ?>
             <p><?= $error ?></p>
     <?php endif; ?>
+
+<p><a href="forgot-password.php">j'ai oublié mon mot de passe</a></p>
 
 <p>OR <a href="signup.php">Create account</a></p>
 
