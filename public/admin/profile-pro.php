@@ -19,11 +19,17 @@
  
  <h2>Commandes</h2>
 
-<?= $commandes = require __DIR__.'/../../includes/liste-commandes.php';
+<? $commandes = require __DIR__.'/../../includes/liste-commandes.php';
 ?>
 
 <h2>Utilisateurs</h2>
-
-<?= $client = require __DIR__.'/../../includes/liste-clients.php';
+<?= $clients = require __DIR__.'/../../includes/liste-clients.php';
 ?>
+
+<h2>Produits</h2>
+
+<?= $produits = require __DIR__.'/../../includes/liste-produits.php';
+?>
+
+
 

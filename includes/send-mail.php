@@ -1,10 +1,55 @@
 <?php 
+$selector = dechex(rand(0,1000000000000000)); 
+$validator = rand(0,1000000000000000);
+$link = "http://rainbow-pen.alwaysdata.net/client/reset/reset-password.php?selector=".$selector."&validator=".dechex($validator);
 
-$subject = 'Le lien pour réinitialiser votre mot de passe'; 
-//$message = "Pour réinitialiser votre mdp cliquez sur <a href='../public/client/reset/reset-password.php'>ce lien</a>";
-$message = "Test"; 
+$expire = date ("U") + 900; 
 
-if (null === mail($email,$subject,$message)){
+require_once __DIR__.'/../src/DbConnection.php';
+
+$pdo = \App\DbConnection::current(); 
+$statement = $pdo->prepare(
+<<<SQL
+    DELETE FROM password_reset 
+    WHERE password_email=?;
+SQL
+
+);
+if (false === $statement->execute([$email])) {
+    throw new RuntimeException('Erreur avec la requête !');
+}
+
+$pdo = \App\DbConnection::current(); 
+$statement = $pdo->prepare( 
+<<<SQL
+    INSERT INTO password_reset (password_email, password_selector, password_validator, password_expires) 
+    VALUES (?, ?, ?, ?);
+SQL
+);
+
+$hashed_validator = password_hash($validator, PASSWORD_DEFAULT);
+
+
+if (false === $statement->execute([
+    $email, 
+    $selector,
+    $hashed_validator, 
+    $expire
+])) { 
+    throw new RuntimeException('Erreur avec la requête insert into!');
+}
+
+$to = $email;
+$subject = 'Le lien pour réinitialiser votre mot de passe rainbow'; 
+$message = '
+<p>Vous avez demandez la réinitialisation de votre mot de passe. Pour choisir un nouveau mot de passe, merci de cliquer sur le lien ci-dessous. Si cette demande ne vient pas de vous, veuillez ignorer cet email. </p>
+<p><a href= "'.$link.'">'.$link.'</a></p>'; 
+
+$headers = "From: rainbow <rainbow-pen@alwaysdata.net>\r\n";
+$headers .= "Reply-To: rainbow-pen@alwaysdata.net\r\n";
+$headers .= "Content-type: text/html\r\n";
+
+
+if (null === mail($to,$subject,$message,$headers)){
     throw new RuntimeException('Erreur avec le mail !');
 }
-?>

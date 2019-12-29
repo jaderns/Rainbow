@@ -34,5 +34,7 @@ if($ligne = $statement->fetch()) {
         new DateTimeImmutable($ligne['created_at']), 
         $ligne['statut']
     );
+} else {
+    return null;
 }
 

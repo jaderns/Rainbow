@@ -29,7 +29,6 @@ if(SessionManager::loggedClient() instanceof Client) {
                 header('location: ../index.php');
                 exit();
              } else {
-                
                 $error = "Mauvais mdp";
             } 
         } else {

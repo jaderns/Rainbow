@@ -16,10 +16,9 @@ use App\Model\Client;
     if (null === $error && null!== $email) {
         $client = require __DIR__.'/../../includes/client-par-email.php';
         if ($client instanceof Client) {   
-            mail($email,'hello','this is the message test');
-            //require __DIR__.'/../../includes/send-mail.php'; 
-                //header('location: reset/reset-message.php');
-                //exit();
+            require __DIR__.'/../../includes/send-mail.php'; 
+                header('location: reset/reset-message.php');
+                exit();
         } else {
             $error = 'Aucun client avec ces informations, merci de rééssayer.';
         }    
@@ -30,7 +29,7 @@ use App\Model\Client;
 <form method="post">
     <h2>Enter your email</h2>
     <input type="email" name="email" placeholder="Email" value="<?= $email ?>"/>
-    <input type="submit" value="Receive a link to reset my password">
+    <input type="submit" name="reset-request" value="Receive a link to reset my password">
     <?php if (null !== $error): ?>
     <p><?= $error ?></p>
     <?php endif; ?>
