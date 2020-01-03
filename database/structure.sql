@@ -8,7 +8,7 @@ CREATE TABLE `clients` (
   `statut` int(11) NOT NULL DEFAULT '0', -- changer pour bool true admin faulse default 
   PRIMARY KEY (`id_client`),
   UNIQUE KEY `email_unique` (`email`)
-) 
+)  
 
 
 -- valeur test par defaut client  
@@ -21,11 +21,13 @@ VALUES ("jaderons@hotmail.fr", "aa", "jade", "24b");
 
 CREATE TABLE `commandes` (
    `id_commande` int(11) unsigned NOT NULL AUTO_INCREMENT,
-  `id_client` int(11) unsigned NOT NULL,
+  `no_commande` varchar(255) NOT NULL DEFAULT '',
+  `id_client` varchar(255) NOT NULL DEFAULT '',
   `id_produit` int(11) unsigned NOT NULL,
   `etat` int(11) NOT NULL DEFAULT '0',
   `created_at` DATETIME NOT NULL DEFAULT NOW(),
   PRIMARY KEY (`id_commande`)
+)
 
   -- valeur test par defaut commandes  
 INSERT INTO `commandes` (`id_client`, `id_produit`) 
@@ -45,11 +47,21 @@ CREATE TABLE `produits` (
 
 CREATE TABLE `commentaires` (
   `id_commentaire` int(11) unsigned NOT NULL AUTO_INCREMENT,
-  `id_client` int(11) unsigned NOT NULL,
-  `contenu` varchar(255) NOT NULL DEFAULT '',
+  `id_client` varchar(255) NOT NULL DEFAULT '',
   `created_at` DATETIME NOT NULL DEFAULT NOW(),
+  `contenu` varchar(255) NOT NULL DEFAULT '',
+  `score` int(11) unsigned NOT NULL,
    PRIMARY KEY (`id_commentaire`)
 ) 
 
 INSERT INTO `commentaires` (`id_client`, `contenu`)
   VALUES (3, "La box 1 est superbe!"), (2, "xoxo j'adore la box 2"), (5, "tro magnifik c mon stilo prèférai");
+
+CREATE TABLE `password_reset` (
+  `password_id` int(11) unsigned NOT NULL AUTO_INCREMENT,
+  `password_email` varchar(255) NOT NULL DEFAULT '',
+  `password_selector` varchar(255) NOT NULL DEFAULT '',
+  `password_validator` varchar(255) NOT NULL DEFAULT '',
+  `password_expires` varchar(255) NOT NULL DEFAULT '',
+  PRIMARY KEY (`password_id`)
+ )

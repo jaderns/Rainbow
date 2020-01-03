@@ -46,4 +46,10 @@ class SessionManager
         }
         return $client;
     }
+
+//     public static function cart($cart): void
+//     {
+//         self::start();
+//         $_SESSION['cart'] = $cart;
+//     }
 }

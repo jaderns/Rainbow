@@ -1,6 +1,6 @@
 <?php 
 
-$selector = $_GET['selector'];
+$selector= $_GET['selector'];
 $validator = $_GET['validator'];
 
 if (null === $selector || null === $validator) {
@@ -11,8 +11,8 @@ if (null === $selector || null === $validator) {
 
         <h1>Reset your password</h1>
         <form method="post">
-            <input type="hidden" name="selector" value=" <?= $selector ?>">
-            <input type="hidden" name="validator" value=" <?= $validator ?>">
+            <input type="hidden" name="selector" value=" <?= $selector; ?>">
+            <input type="hidden" name="validator" value=" <?= $validator; ?>">
             <input type="password" name="password" placeholder="Mot de passe"/>
             <input type="password" name="cpassword" placeholder="Confirmez le mot de passe"/>
             <?php if (isset($error['password'])): ?>
@@ -22,8 +22,8 @@ if (null === $selector || null === $validator) {
          </form>
         <?
 
-        $selector = $_POST['selector'] ?? null;
-        $validator = $_POST['validator'] ?? null;
+        $selector = strval($_POST['selector']) ?? null;
+        $validator = strval($_POST['validator']) ?? null;
         $password = $_POST['password'] ?? null;
         $cpassword = $_POST['cpassword'] ?? null;
         $new_password = password_hash($password, PASSWORD_DEFAULT);

@@ -8,24 +8,25 @@ $statement = $pdo->prepare(
 <<<SQL
     SELECT *
     FROM password_reset
-    WHERE password_selector=?
-    AND password_expires >=?;
-
+    WHERE password_selector=?;
+    
 SQL
 );
 
 if (false === $statement->execute([ 
-    $selector,
-    $currentdate
+    $selector
 ])) { 
     throw new RuntimeException('Erreur avec la requête select!');
 }
 
-if( null === $ligne = $statement->fetch()) {
+if(null == ($ligne = $statement->fetch())) {
     echo "You need to resubmit your request didnt work";
 } else { 
-    $tokencheck = password_verify(hexdec($validator),$ligne['password_validator']);  
+    $tokencheck = password_verify($validator,$ligne['password_validator']);  
     if (false == $tokencheck) {
+        echo "validator ".$validator;
+        echo " lignes ".$ligne['password_validator'];
+        echo "token".$tokencheck = password_verify($validator,$ligne['password_validator']);  
         echo "You need to resubmit your request";
     }
     elseif (true == $tokencheck) {

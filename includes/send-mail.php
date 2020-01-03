@@ -1,7 +1,7 @@
 <?php 
-$selector = dechex(rand(0,1000000000000000)); 
-$validator = rand(0,1000000000000000);
-$link = "http://rainbow-pen.alwaysdata.net/client/reset/reset-password.php?selector=".$selector."&validator=".dechex($validator);
+$selector = rand(1,10000000); 
+$validator = rand(1,10000000);
+$link = "http://rainbow-pen.alwaysdata.net/client/reset/reset-password.php?selector=".$selector."&validator=".$validator;
 
 $expire = date ("U") + 900; 
 
@@ -41,9 +41,9 @@ if (false === $statement->execute([
 
 $to = $email;
 $subject = 'Le lien pour réinitialiser votre mot de passe rainbow'; 
-$message = '
-<p>Vous avez demandez la réinitialisation de votre mot de passe. Pour choisir un nouveau mot de passe, merci de cliquer sur le lien ci-dessous. Si cette demande ne vient pas de vous, veuillez ignorer cet email. </p>
-<p><a href= "'.$link.'">'.$link.'</a></p>'; 
+$message = utf8_encode('
+<p>Vous avez demandez la reinitialisation de votre mot de passe. Pour choisir un nouveau mot de passe, merci de cliquer sur le lien ci-dessous. Si cette demande ne vient pas de vous, veuillez ignorer cet email. </p>
+<p><a href= "'.$link.'">'.$link.'</a></p>'); 
 
 $headers = "From: rainbow <rainbow-pen@alwaysdata.net>\r\n";
 $headers .= "Reply-To: rainbow-pen@alwaysdata.net\r\n";

@@ -13,7 +13,23 @@ if(SessionManager::loggedClient() instanceof Client) {
     $error = null;
     $email = $_POST['email'] ?? null;
     $password = $_POST['password'] ?? null;
+    $message = $_GET['message'] ?? null; 
     //ou alors=> $email = isset($_POST['email']) ? $_POST['email'] : null;
+    
+    if (null !== $message) {
+        switch ($message) {
+            case 1:
+                echo "Vous devez vous connecter pour effectuer une commande";
+                break;
+            case 2:
+                echo "i equals 1";
+                break;
+            case 3:
+                echo "i equals 2";
+                break;
+        }
+    }
+    
     if (null !== $email &&
         false === filter_var($email, FILTER_VALIDATE_EMAIL)
     ) {

@@ -23,7 +23,7 @@ use App\Model\Client;
             $error = 'Aucun client avec ces informations, merci de rééssayer.';
         }    
     }
-   
+
         ?>
 
 <form method="post">

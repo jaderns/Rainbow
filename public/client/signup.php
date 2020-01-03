@@ -31,9 +31,14 @@ if (!isset($error['email']) && null !== $email) {
 if (count($error) === 0 && null !== $email) {
     $client = require __DIR__.'/../../includes/nouveau-client.php';
     if ($client instanceof Client) {
-        SessionManager::loginClient($client);
-        header('Location: ../index.php');
-        exit();
+        if (1 == $_GET['new']) {
+            header('location: ../admin/profile-pro.php');
+            exit(); 
+        } else {
+            SessionManager::loginClient($client);
+            header('location: ../index.php');
+            exit();
+        }
     } else {
         $error['enregistrement'] = 'Erreur pendant enregistrement !';
     }
