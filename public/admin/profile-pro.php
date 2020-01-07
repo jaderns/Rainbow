@@ -12,13 +12,14 @@
      header('location: ../client/login.php');
      exit(); 
  }
- 
- require_once __DIR__.'/../../public/header.php';
- 
  ?>
- 
- <h1>Profil Admin</h1>
- 
+ <html>
+ <body>
+     <div class="container">
+         <?php 
+require_once __DIR__.'/../../public/header.php';
+?>
+         <div class="item item4">
  <h2>Commandes</h2>
 <?php 
 require __DIR__.'/../../includes/liste-commandes.php';
@@ -48,7 +49,8 @@ foreach ($commandes as $value)
 };
 
 ?>
-
+</div>
+<div class="item item5">
 <h2>Utilisateurs</h2>
 <?php 
 require __DIR__.'/../../includes/liste-clients.php';
@@ -66,7 +68,9 @@ foreach ($clients as $value)
 };
 
 ?>
+</div>
 
+<div class="item item6">
 <h2>Commentaires</h2>
 <?php 
 require __DIR__.'/../../includes/liste-commentaires.php';
@@ -81,7 +85,9 @@ foreach ($commentaires as $value)
 
 
 ?>
+</div>
 
+<div class="item item7">
 <h2>Produits</h2>
 
 <?php  
@@ -99,4 +105,4 @@ foreach ($produits as $value)
 ?>
 
 
-
+</div>
