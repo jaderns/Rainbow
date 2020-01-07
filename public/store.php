@@ -1,9 +1,18 @@
-<?php 
+<html>
+    <body>
+        <div class="container">
+        <?php 
 include('header.php');
 ?>
 
 
-<h1>Store</h1>
+<div class="item item4">
+                <h2>Box</h2>
+            </div>
+
+           <div class="item item6">
+                <h2>Mines</h2>
+          
 
 <?php
 
@@ -16,10 +25,17 @@ foreach ($produits as $value)
     echo $value->titre()." ";
     echo $value->description()."<p/>";
     echo '<a href="fiche.php?id_produit='.$value->id_produit().'"> En savoir plus </a>';
-    echo '<a href="store.php?pan='.$value->id_produit().'"> Ajouter au panier </a>';
+    // echo '<a href="store.php?pan='.$value->id_produit().'"> Ajouter au panier </a>';
 };
 
 
-
 ?>
+  </div> 
 
+  <div class="item item8">
+
+<?php 
+
+include('footer.php');
+?>
+</div>

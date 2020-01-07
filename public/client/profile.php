@@ -11,24 +11,30 @@ if(null ==$client = SessionManager::loggedClient()) {
     exit(); 
 }
 
+?>
+
+<html>
+    <body>
+        <div class="container">
+            <?php 
 require_once __DIR__.'/../../public/header.php';
+?>
+            <div class="item item4">
+                <h2>Mes informations</h2>
+                <?php 
+
+echo "<p>Email: ".$client->email()."</p>";
+echo "<p>Mot de passe: ************</p>";
+echo "<p>Nom: ".$client->name()."</p>";
+echo "<p>Adresse: ".$client->address()."</p>"; 
+echo "<a href='../admin/update-user.php?edit=".$client->email()."'>Modifier mon compte</a>"
 
 ?>
 
-<h1>Profile</h1>
+            </div>
 
-<h2>Mes informations</h2>
-
-<?php 
-
-    echo "<p>Email: ".$client->email()."</p>";
-    echo "<p>Mot de passe: ************</p>";
-    echo "<p>Nom: ".$client->name()."</p>";
-    echo "<p>Adresse: ".$client->address()."</p>"; 
-    echo "<a href='../admin/update-user.php?edit=".$client->email()."'>Modifier mon compte</a>"
-
-?>
-
+            <div class="item item7">
+                
 <h2>Mes commandes</h2>
 
 <?php
@@ -46,4 +52,17 @@ foreach ($commandes as $value)
     echo '<a href="profile-pro.php?delete_commande='.$value->no_commande().'">Suppr</a><p/>';
 
 };
+?>
+
+            </div>
+
+            <div class="item item8">
+
+<?php 
+
+require_once __DIR__.'/../../public/footer.php';
+?>
+</div>
+
+            
 

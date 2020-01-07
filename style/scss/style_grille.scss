@@ -1,0 +1,200 @@
+//fichier uniquement pour la grille
+
+
+body{
+    background-color: white;
+    font-family: 'Roboto', sans-serif;
+    margin: 0;
+}
+    .container{
+        ///GRILLE
+        display: grid;
+        grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
+        //grid-template-rows: 20vh 80vh 80vh 80vh 80vh 20vh;
+        grid-template-rows: 20vh 80vh auto auto auto auto; 
+        //grid-gap: 5px;
+        grid-template-areas: "header1 header1 header2 header2 header2 header2 header2 header2 header2 header2 header3 header3"
+        "content content content content content content content content content content content content"
+        "content1 content1 content1 content1 content1 content1 content1 content1 content1 content1 content1 content1"
+        "content2 content2 content2 content2 content2 content2 content2 content2 content2 content2 content2 content2"
+        "content3 content3 content3 content3 content3 content3 content3 content3 content3 content3 content3 content3"
+        "footer1 footer1 footer2 footer2 footer2 footer2 footer2 footer2 footer2 footer2 footer3 footer3";
+    
+
+
+      
+
+        .start_col1 {grid-area: content2;
+                     grid-column-start: 1;}
+        .start_col2 {    position: relative;grid-area: content2;
+                     grid-column-start: 2;}
+        .start_col3 {    position: relative;grid-area: content2;
+                     grid-column-start: 3;}
+        .start_col4 {grid-area: content2;
+                     grid-column-start: 4;}
+        .start_col5 {grid-area: content2;
+                     grid-column-start: 5;}
+        .start_col6 {grid-area: content2;
+                     grid-column-start: 6;}
+        .start_col7 {grid-area: content2;
+                     grid-column-start: 7;}
+        .start_col8 {grid-area: content2;
+                     grid-column-start: 8;}
+        .start_col9 {grid-area: content2;
+                     grid-column-start: 9;}
+        .start_col10 {grid-area: content2;
+                    grid-column-start: 10;}
+        .start_col11 {grid-area: content2;
+                    grid-column-start: 11;}
+        .start_col12 {grid-area: content2;
+                    grid-column-start: 12;}
+
+
+        
+        .end_col2 {grid-column-end: 2;}
+        .end_col3 {grid-column-end: 3;}
+        .end_col4 {grid-column-end: 4;}
+        .end_col5 {grid-column-end: 5;}
+        .end_col6 {grid-column-end: 6;}
+        .end_col7 {grid-column-end: 7;}
+        .end_col8 {grid-column-end: 8;}
+        .end_col9 {grid-column-end: 9;}
+        .end_col10 {grid-column-end: 10;}
+        .end_col11 {grid-column-end: 11;}
+        .end_col12 {grid-column-end: 12;}
+        .end_col13 {grid-column-end: 13;}
+
+
+        
+
+// grand ecran (tout le css principal) ecirre dans les autres média queries, seulement les modif du css principal 
+    @media screen and (max-width: 2000px){
+    //LOGO
+        .item1 {
+            background-color: #fff;
+            grid-area: header1;
+            grid-column-start: 1;
+            margin-top: 15px;
+            .logo{
+                margin-left: 25px;
+                height: 80%;
+            }
+        }
+        //MENU Gauche
+        .item2 {
+            position: relative;
+            display: inline-block;
+            margin-top: 15px;
+            background-color: #fff;
+            grid-area: header2;
+            grid-column-start: 3;
+
+            a{
+                text-decoration: none;
+                color: black;
+                
+                &:hover{
+                    color: #FFAAAA;
+                }
+            }
+        }
+        // MENU droite
+        .item3 {
+            position: relative;
+            background-color: #fff;
+            grid-area: header3;
+            grid-column-start: 11;
+            margin-top: 15px;
+
+            a{
+                text-decoration: none;
+                color: black;
+                
+                &:hover{
+                    color: #FFAAAA;
+                }
+            }
+        }
+        // Zone 1
+        .flex {
+            display: flex;
+            height: 100%;
+        }
+
+        .item4 {
+            position: relative;
+            grid-area: content;
+            grid-column-start: 1;
+            grid-column-end: 13;
+            // display: flex; on devrait plutot mettre une div flex (au dessus) dans item 4 sinon item 4 est flex sur toutes les pages et c'est paas ce qu'on veut
+            flex-direction: row;
+
+            .content1{
+                width: 50%;
+                background-color:#FFAAAA;
+            }
+            .content2{
+                width: 50%;
+                background-color: #FEECFC;
+            }
+        }
+        // Zone 2
+        .item5{
+            background-color: red;
+            position: relative;
+            // background-color: #fff;
+            grid-area: content1;
+            grid-column-start: 1;
+            display: flex;
+            flex-direction: row;
+
+            .img1{
+                width:20%;
+            }
+            .img2{
+                width:20%;
+            }
+            .img3{
+                width:20%;
+            }
+        }
+        // Zone 3
+        .item6 {
+            position: relative;
+            background-color: #ACD5C5;
+            grid-area: content2;
+            grid-column-start: 1;
+        }
+
+        //Zone 4
+
+        .item7 {
+            position: relative;
+            background-color: blue;
+            grid-area: content3;
+            grid-column-start: 1;
+        }
+
+        //FOOTER
+        .item8{
+            position: relative;
+            background-color: #fff;
+            grid-area: footer2;
+            grid-column-start: 3;
+        }
+       
+      
+    }
+    @media screen and (max-width: 1024px){
+    .logo{
+        height: 80%;
+    }
+      
+    }
+    @media screen and (max-width: 640px){
+        .logo{
+            height: 50%;
+        }
+    }
+    
+}

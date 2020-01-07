@@ -60,7 +60,7 @@ INSERT INTO `commentaires` (`id_client`, `contenu`)
 CREATE TABLE `password_reset` (
   `password_id` int(11) unsigned NOT NULL AUTO_INCREMENT,
   `password_email` varchar(255) NOT NULL DEFAULT '',
-  `password_selector` varchar(255) NOT NULL DEFAULT '',
+  `password_selector` int(11) NOT NULL,
   `password_validator` varchar(255) NOT NULL DEFAULT '',
   `password_expires` varchar(255) NOT NULL DEFAULT '',
   PRIMARY KEY (`password_id`)

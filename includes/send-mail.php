@@ -1,6 +1,6 @@
 <?php 
-$selector = rand(1,10000000); 
-$validator = rand(1,10000000);
+$selector =rand(1,10000000); 
+$validator =rand(1,10000000);
 $link = "http://rainbow-pen.alwaysdata.net/client/reset/reset-password.php?selector=".$selector."&validator=".$validator;
 
 $expire = date ("U") + 900; 
@@ -22,7 +22,8 @@ if (false === $statement->execute([$email])) {
 $pdo = \App\DbConnection::current(); 
 $statement = $pdo->prepare( 
 <<<SQL
-    INSERT INTO password_reset (password_email, password_selector, password_validator, password_expires) 
+    INSERT INTO password_reset (password_email, password_selector, 
+    password_validator, password_expires) 
     VALUES (?, ?, ?, ?);
 SQL
 );
@@ -47,7 +48,7 @@ $message = utf8_encode('
 
 $headers = "From: rainbow <rainbow-pen@alwaysdata.net>\r\n";
 $headers .= "Reply-To: rainbow-pen@alwaysdata.net\r\n";
-$headers .= "Content-type: text/html\r\n";
+$headers .= "Content-type: text/html; charset=utf-8\r\n";
 
 
 if (null === mail($to,$subject,$message,$headers)){
