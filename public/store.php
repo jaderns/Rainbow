@@ -21,7 +21,7 @@ require __DIR__.'/../includes/liste-produits.php';
 foreach ($produits as $value)
 {
     echo "<p>".$value->id_produit()." ";
-    echo '<img style="width:150px;height:112px;border:solid 1px black" src="/photos/'.$value->photo().'">';
+    echo '<img style="width:150px;height:112px;border:solid 1px black" src="/rainbow/public/photos/'.$value->photo().'">';
     echo $value->titre()." ";
     echo $value->description()."<p/>";
     echo '<a href="fiche.php?id_produit='.$value->id_produit().'"> En savoir plus </a>';

@@ -1,0 +1,235 @@
+//Login
+
+//COLORS
+//Claires
+$vert: #C5F1DF;
+$jaune: #FCEE9C;
+$rose: #FEECFC;
+//Foncées
+$vertfonce: #ACD5C5;
+$jaunefonce: #EBD033;
+$rosefonce: #FCC1D7;
+
+//all 
+.flex-column {
+    flex-direction: column;
+}
+
+body {
+    background-color: white;
+    font-family: 'Roboto', sans-serif;
+    margin: 0;
+}
+
+html {
+    overflow-x: hidden;
+}
+
+h2 {
+    margin-top: 50px;
+    height: 100px;
+    text-shadow: 19px 17px 0 pink, -19px -17px 0 teal;
+
+    .titre_couleur1 {}
+}
+
+@media all and (max-width: 2000px) {
+
+    //header
+    .navbar {
+        height: 18vh;
+    }
+
+    .logo {
+        margin: auto;
+        padding-left: 20px;
+
+        img {
+            height: 80px;
+        }
+    }
+
+    .menu {
+        color: black;
+        font-size: 1em;
+        text-decoration: none;
+        margin-top: auto;
+        margin-bottom: auto;
+    }
+
+    .menu:hover {
+        color: pink;
+    }
+
+    .icon {
+        height: 50px;
+        width: 50px;
+        margin: auto 0;
+    }
+
+    .dropdown {
+        position: relative;
+        display: inline-block;
+        margin-top: auto;
+        margin-bottom: auto;
+
+        text-align: right;
+    }
+
+    .dropdown_button {
+        background-image: url("/rainbow/public/photos/icone_compte.png");
+        background-position: center;
+        background-size: cover;
+        padding: 0;
+        border: none;
+        margin-right: 20px;
+        height: 40px;
+        width: 40px;
+    }
+
+    .dropdown_content {
+        display: none;
+        position: absolute;
+        background-color: #f1f1f1;
+        min-width: 160px;
+        right: 20px;
+        z-index: 1;
+    }
+
+    .dropdown_content a,
+    .dropdown_content p {
+        color: black;
+        padding: 12px 16px;
+        text-decoration: none;
+        display: block;
+        margin: 0;
+    }
+
+    .dropdown_content a:hover {
+        background-color: #ddd;
+    }
+
+    .dropdown:hover .dropdown_content {
+        display: block;
+    }
+
+    //accueil 
+
+    .cropImgbandeau {
+
+        height: 82vh;
+        overflow: hidden;
+        img {
+            position: absolute;
+            // min-width: 75%;
+            height: 82%;
+
+        }
+    }
+
+    .objet1 {
+        position: absolute;
+        padding-left: 300px;
+        background-color: rgb(233, 197, 227);
+        border: 1px solid #e9c5e3;
+        width: 65%;
+        height: 82%;
+        clip-path: polygon(25% 0, 100% 0, 100% 100%, 0% 100%);
+        right: 0;
+
+    }
+
+    .styled {
+        display: block;
+        width: 150px;
+        padding: 12px 20px;
+        font-size: 1rem;
+        text-align: center;
+        color: palevioletred;
+        border: solid 0.1rem pink;
+        border-radius: 100px;
+        background-color: rgba(0, 0, 0, 0);
+        box-shadow: 8px 8px 0 palevioletred;
+        background-color: white;
+        z-index: 500;
+        margin: 10px;
+
+    }
+
+    .styled:hover {
+        box-shadow: none;
+        margin-left: 20px;
+        margin-top: 20px;
+
+    }
+
+    .styled:active {
+        color: white;
+        background-color: pink;
+
+    }
+
+    .caroussel_image {
+
+        img {
+            height: 19vw;
+
+            &:hover {
+                transform: rotate(2deg);
+            }
+
+        }
+    }
+
+    .caroussel_box {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
+        margin-bottom: 100px;
+        height: 40vh;
+    }
+
+    //faq
+    .collapsible {
+        cursor: pointer;
+        padding: 1%;
+        margin: 1% 0;
+        width: 100%;
+        background-color: cornflowerblue;
+        border: 1px solid black;
+        outline: none;
+    }
+
+    .active,
+    .collapsible:hover {
+        background-color: lightgrey;
+        color: black;
+    }
+
+    .content_collapsible {
+        padding: 1%;
+        background-color: lightgrey;
+        display: none;
+    }
+
+    .faq {
+        margin-bottom: 100px;
+    }
+
+    .fontfaq {
+        background-color: cadetblue;
+
+    }
+
+}
+
+@media all and (max-width: 640px) {
+
+    .menu-burger {
+        display: inline-block;
+    }
+
+    //profil-pro
+
+}

@@ -23,41 +23,23 @@ while ($ligne = $statement->fetch()) {
         $ligne['id_client'],
         new DateTimeImmutable($ligne['created_at']), 
         $ligne['contenu'],
-        $ligne['score']);
+        $ligne['score']
+    );
 }
 
+// //supprimer commentaire
+if(isset($_GET['delete_commentaire'])) {
+    $created_at=$_GET['delete_commentaire'];
 
-// //supprimer client
-
-// if(isset($_GET['delete_client'])) {
-//     $email=$_GET['delete_client'];
-    
-// // echo "Voulez vous supprimer le client ".$email=$_GET['delete_client']."?";
-// //  <a href="profile-pro.php?delete_client=<?=$value->email()&button=oui">Oui</a>
-// //         <a href="profile-pro.php">Non</a> </form><?php
-// // } 
-
-// // if (isset($_GET['button'])) {
-    
-// $pdo = \App\DbConnection::current();     
-// $statement = $pdo->prepare(
-// <<<SQL
-//     DELETE FROM clients
-//     WHERE email=?;
-// SQL
-// );
-// if (false === $statement->execute([$email])) { 
-//     throw new RuntimeException('Erreur avec la requête de suppression!');
-// }
-// header('location:profile-pro.php');
-
-// }
-
-// //modif client 
-// if(isset($_GET['edit'])) {
-//     $email=$_GET['edit'];
-// header("location:../admin/update-user.php?edit=$email");
-
-
-
-// }
+$pdo = \App\DbConnection::current();     
+$statement = $pdo->prepare(
+<<<SQL
+    DELETE FROM commandes
+    WHERE created_at=?;
+SQL
+);
+if (false === $statement->execute([$created_at])) { 
+    throw new RuntimeException('Erreur avec la requête de suppression!');
+}
+header('location:profile-pro.php');
+}

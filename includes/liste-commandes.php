@@ -54,21 +54,19 @@ $statement = $pdo->prepare(
 SQL
 );
 
-
+//envoyer mail à client si commande envoyé
 if (false === $statement->execute([$no_commande])) {
     throw new RuntimeException('Erreur avec la requête !');
-}
+} else {
 $mail = 1;
 $email = $_POST['email'];
 require 'mail-confirmation-commande.php';
 header('location:profile-pro.php');
-
 }
 }
-
+}
 
 //supprimer commande
-
 if(isset($_GET['delete_commande'])) {
     $no_commande=$_GET['delete_commande'];
 
@@ -84,5 +82,4 @@ if (false === $statement->execute([$no_commande])) {
     throw new RuntimeException('Erreur avec la requête de suppression!');
 }
 header('location:profile-pro.php');
-
 }

@@ -6,6 +6,7 @@
  use App\SessionManager;
  
  require_once __DIR__.'/../../src/SessionManager.php';
+ require __DIR__.'/../../includes/liste-commandes.php';
  
  
  if(null ==$client = SessionManager::loggedClient()) {
@@ -19,10 +20,11 @@
          <?php 
 require_once __DIR__.'/../../public/header.php';
 ?>
-         <div class="item item4">
- <h2>Commandes</h2>
+         <div class="flex-column row">
+ <h2 class="offset-lg-1 col-lg-11">Commandes</h2>
+<div class="offset-lg-2 col-lg-8 ">
 <?php 
-require __DIR__.'/../../includes/liste-commandes.php';
+
 
 foreach ($commandes as $value)
 {
@@ -50,8 +52,10 @@ foreach ($commandes as $value)
 
 ?>
 </div>
+</div>
 <div class="item item5">
-<h2>Utilisateurs</h2>
+<h2 class="offset-lg-1 col-lg-11">Utilisateurs</h2>
+<div class="offset-lg-2 col-lg-8 ">
 <?php 
 require __DIR__.'/../../includes/liste-clients.php';
 
@@ -69,9 +73,11 @@ foreach ($clients as $value)
 
 ?>
 </div>
+</div>
 
 <div class="item item6">
-<h2>Commentaires</h2>
+<h2 class="offset-lg-1 col-lg-11">Commentaires</h2>
+<div class="offset-lg-2 col-lg-8 ">
 <?php 
 require __DIR__.'/../../includes/liste-commentaires.php';
 
@@ -81,14 +87,17 @@ foreach ($commentaires as $value)
     echo $value->created_at()->format('d-m-Y')." ";
     echo $value->contenu()." ";
     echo $value->score()." ";
+    echo '<a href="profile-pro.php?delete_commentaire='.$value->created_at()->format('Y-m-d H:i:s').'">Suppr</a><p/>';
     };
 
 
 ?>
 </div>
+</div>
 
 <div class="item item7">
-<h2>Produits</h2>
+<h2 class="offset-lg-1 col-lg-11">Produits</h2>
+<div class="offset-lg-2 col-lg-8 ">
 
 <?php  
 require __DIR__.'/../../includes/liste-produits.php';
@@ -105,4 +114,5 @@ foreach ($produits as $value)
 ?>
 
 
+</div>
 </div>

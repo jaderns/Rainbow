@@ -1,9 +1,10 @@
 {
 	"folders": [
-		{
-			"path": "."
-		}
-	],
+        {
+            "name": "rainbow",
+            "path": "."
+        }
+    ],
 	"settings": {
         "liveSassCompile.settings.formats":[
             {

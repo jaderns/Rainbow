@@ -1,27 +1,58 @@
-
-<html>
+ <html>
     <body>
-        <div class="container">
-        <?php 
+        
+            <?php 
 include('header.php');
 ?>
-            <div class="item item4">
-              <div class="flex">
-                <div class="content1">FLEX</div>
-                <div class="content2">BOX</div>
-                </div>
-            </div>
-            <div class="item item5">
-            <h2 class="item">Nouveautés</h2>
-                <!-- <div class="img1"><a href=""><img src="" alt=""></a></div> <div
-                class="img2"><a href=""><img src="" alt=""></a></div> <div class="img3"><a
-                href=""><img src="" alt=""></a></div>-->
-            </div>
+        <div class="container">
+            <div class="cropImgbandeau">
+                    <div>
+                        <img class=""src="../public/photos/photo8.jpg" alt="photo produit 1"/>
+                        <div class="objet1"> 
+                        <h3 class="slogan">Pinceau révolutionnaire</h3>
+                        <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Natus, modi consequuntur reiciendis cum a earum minima vel eum velit magnam molestiae similique quidem quia ex quod deserunt quam provident architecto.</p>
+                        <a class="styled">En savoir +</a>
+                        </div> 
+                    </div>
+                 
+                  
+                            
+                                                  
+                        
+             </div>
+        
+
+        <div class="row">
+        
+            <h2 class="offset-lg-2 col-lg-8">Nouveautés</h2>
+            <div class="caroussel_box offset-lg-2 col-lg-8 offset-lg-2">
             
-            <div class="item item6"></div> <!-- background vert -->
-            <div class="item start_col2 end_col12">
-            <h2 class="item">FAQ</h2>
-                <button class="collapsible">Ceci est une question concernant le produit rainbow pen?</button>
+         
+                <a class="caroussel_image" href=""><img 
+                   src="../public/photos/photo8_carre.jpg"
+                    alt="photo produit 1"/>
+                <h3>Box spéciale peinture</h3></a>
+                    
+                 
+                <a class="caroussel_image" href=""><img 
+                  src="../public/photos/photo8_carre.jpg"
+                    alt="photo produit 1"/>
+                    <h3>Box spéciale acrylique</h3></a>
+            
+            
+                <a class="caroussel_image" href=""><img 
+                src="../public/photos/photo8_carre.jpg"
+                    alt="photo produit 1"/>
+                    <h3>Box spéciale calligraphie</h3></a>
+            </div>
+        </div>
+
+        <div class="row fontfaq">
+            <!-- background vert -->
+            <div class="offset-lg-2 col-lg-8 offright-2">
+
+                <h2>FAQ</h2>
+                <div class="faq"><button class="collapsible">Ceci est une question concernant le produit rainbow pen?</button>
                 <div class="content_collapsible">Lorem ipsum dolor sit amet consectetur
                     adipisicing elit. Quidem et, nisi voluptatibus eius exercitationem debitis
                     deleniti beatae dolore modi ratione consequuntur aspernatur pariatur! Commodi
@@ -41,40 +72,23 @@ include('header.php');
                     adipisicing elit. Autem sapiente dolores beatae nesciunt fugit quae in earum
                     tenetur ipsum? Voluptatum repudiandae, et sapiente quod ipsam beatae natus culpa
                     atque quisquam.</div>
+                    </div>
 
-                <script type="text/javascript" src="../js/functions.js"></script>
+                
             </div>
-            <div class="item item8">
-
-            <?php 
+        </div>
+            <div class="row">
+            
+                <?php 
 
 include('footer.php');
 ?>
             </div>
+            </div>
 
-            <style>
-                .collapsible {
-                    cursor: pointer;
-                    padding: 1%;
-                    margin: 1% 0;
-                    width: 100%;
-                    border: 1px solid black;
-                    outline: none;
-                }
-
-                .active,
-                .collapsible:hover {
-                    background-color: lightgrey;
-                    color: black;
-                }
-
-                .content_collapsible {
-                    padding: 1%;
-                    background-color: lightgrey;
-                    display: none;
-                }
-            </style>
+        
 
         </div>
+        
     </body>
 </html>

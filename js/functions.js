@@ -21,3 +21,29 @@ for (i = 0; i < coll.length; i++) {
     }
   });
 }
+
+var mod = document.getElementsByClassName("mod");
+var j;
+
+for (j = 0; j < mod.length; j++) {
+  mod[j].addEventListener("mouseover", function() {
+    this.classList.toggle("active");
+    var mod_content = this.nextElementSibling;
+    if (mod_content.style.display === "block") {
+      mod_content.style.display = "none";
+    } else {
+      mod_content.style.display = "block";
+    }
+  });
+
+  mod[j].addEventListener("mouseout", function() {
+    this.classList.toggle("active");
+    var mod_content = this.nextElementSibling;
+    if (mod_content.style.display === "block") {
+      mod_content.style.display = "none";
+    } else {
+      mod_content.style.display = "block";
+    }
+  });
+  
+}

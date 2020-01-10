@@ -1,4 +1,7 @@
-<?php
+<a href="/rainbow/public/index.php">
+                    <img class="logo" src="/rainbow/public/photos/logo.png" alt="rainbowlogo">
+                </a>
+                <?php
 
 use App\Model\Client; 
 use App\SessionManager;
@@ -42,7 +45,7 @@ if(SessionManager::loggedClient() instanceof Client) {
              //Verif mdp 
              if (true === password_verify($password, $client->password())) {
                 SessionManager::loginClient($client);
-                header('location: ../index.php');
+                header("location:../index.php");
                 exit();
              } else {
                 $error = "Mauvais mdp";
